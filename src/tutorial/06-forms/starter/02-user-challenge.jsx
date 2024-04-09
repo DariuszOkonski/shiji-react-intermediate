@@ -8,6 +8,7 @@ const UserChallenge = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!name) {
+      alert('enter some name');
       return;
     }
 
@@ -40,6 +41,8 @@ const UserChallenge = () => {
           submit
         </button>
       </form>
+
+      <h2>Users</h2>
       <ul>
         {users.map((user) => (
           <li key={user.id}>
