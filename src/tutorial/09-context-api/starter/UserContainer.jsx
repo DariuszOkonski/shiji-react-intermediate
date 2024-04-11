@@ -1,25 +1,18 @@
 import React from 'react';
 
 const UserContainer = ({ user, logout, login }) => {
-  if (!user) {
-    return (
-      <div>
-        <h1>User logged out</h1>
-        <h2>please log in</h2>
-        <button className='btn' onClick={login}>
-          login
-        </button>
-      </div>
-    );
-  }
-
   return (
-    <div>
-      <h1>UserContainer</h1>
-      <h2>User Name: {user.name}</h2>
-      <button className='btn' onClick={logout}>
-        Logout
-      </button>
+    <div className='user-container'>
+      {user ? (
+        <>
+          <p>Hello there, {user?.name?.toUpperCase()}</p>
+          <button className='btn' onClick={logout}>
+            logout
+          </button>
+        </>
+      ) : (
+        <p>Please Login</p>
+      )}
     </div>
   );
 };
