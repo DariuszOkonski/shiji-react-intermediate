@@ -1,8 +1,13 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
+import slowFunction from '../../11-performance/starter/03-hooks/slowFunction';
 const url = 'https://api.github.com/users';
 
 const FetchData = () => {
   const [users, setUsers] = useState([]);
+
+  const value = useMemo(() => slowFunction(), []);
+
+  console.log(value);
 
   const fetchData = useCallback(async () => {
     try {
